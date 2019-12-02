@@ -29,6 +29,8 @@ Ein Mock ist eine Attrappe, die als Platzhalter für noch nicht realisierte Obje
 - die reale Lösung zu komplex und langsam für einen Test ist – bspw. eine vollständige Datenbank, die vor jedem Test initialisiert      werden müsste.
 
 ## Erklärung
+![Diagramm](https://github.com/Zuloi/Python_unittest.mock/blob/master/Untitled%20Diagram%20(1).png)
+
 ## Einsatzgebiete
 ## Installation
 ## Quick Guide
