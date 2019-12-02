@@ -1,5 +1,5 @@
 # Python_unittest.mock
-mock object library
+## mock object library
 
 
 
@@ -10,7 +10,7 @@ mock object library
    * [Erklährung](#erklärung)
    * [Einsatzgebiete](#einsatzgebiete)
    * [Installation](#installation)
-   * [Quick Guide](#quick-quide)
+   * [Quick Guide](#quick-guide)
    * [Mock Class](#mock-class)
    * [Patchers](#patchers)
    * [Anmerkungen](#anmerkungen)
