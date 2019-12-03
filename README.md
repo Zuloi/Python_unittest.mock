@@ -108,7 +108,7 @@ Die Meinungen gehen auseinander bei der Frage, ob ein Mock auch bei einem Integr
 - Der Code wird modularer und Abhängigkeiten werden offensichtlich.
 #### Nachteile
 - Das Zusammenspiel der „echten“ Komponenten wird nicht getestet. Es sind zusätzliche Integrationstests nötig.
-- Das einfache Erstellen von Test Doubles mit Frameworks führt ggfs. zu komplexen Test-Setups oder Overengineering.
+- Ncht für den Produktiven einsatzt nur um zu testen.
 
 ## Installation
 ## Quick Guide
