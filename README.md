@@ -59,6 +59,15 @@ Ein Mock ist eine Attrappe, die als Platzhalter für noch nicht realisierte Obje
 
 
 ## Arten des Mocking
+Es gibt verschiedene Arten von Mock-Objekten:
+
+- Ein Dummy ist ein Objekt, das im Code weitergegeben, aber nicht verwendet wird. Es wird genutzt, um Parameter mit Werten zu befüllen.
+- Ein Fake ist ein teilweise implementiertes Objekt, das nur eingeschränkt einsatzfähig ist. Beispiel: eine Datenbank die Daten nicht persistent speichert.
+- Ein Stub ist ein Objekt, das unabhängig von einer Eingabe / Input immer dieselbe Antwort / Output liefert.
+- Ein Spy ist ein Objekt, das Aufrufe und Werte protokolliert und gegebenenfalls ausliefert.
+- Ein Mock ist ein Objekt,das verwenden wird um ein gewünschtes Verhalten nachzustellen.
+- Ein Shim bzw. ein „Shiv“ ist ein Objekt, das Anfragen an eine Schnittstelle abfängt und selbst antwortet.
+
 
 #### Fakes
 Fakes können ohne Framework einfach selbst implementiert werden. Ihre Implementierung ähnelt der echten, ist aber z.B. einfacher/schneller oder gibt nur definierte Werte zurück.
@@ -89,6 +98,18 @@ Spies sind nicht eindeutig definiert. Ein Spy kann ein Stub mit „Aufzeichnungs
 Ein Spy ist eine Art Mock zur Aufzeichnung der Interaktionen, aber mit der Möglichkeit der Delegation der Aufrufe an die echte Komponente. Der Spy „umschließt“ also das echte Objekt, kann einzelne Methoden überschreiben und delegiert den Rest an das echte Objekt. Im Nachhinein kann dann noch geprüft werden, welche Methoden aufgerufen wurden.
 
 ## Einsatzgebiete
+Die Meinungen gehen auseinander bei der Frage, ob ein Mock auch bei einem Integrationstest nützlich sein kann. Idealerweise testet ein Integrationstest ein gesamtes System auf funktionale Vollständigkeit und Fehlerfreiheit. In der Praxis kann es jedoch immer wieder vorkommen, dass nicht alle Elemente rechtzeitig fertiggestellt wurden – hier könnte der Einsatz von Mocks Sinn ergeben.
+
+#### Vorteile
+- Tests sind nicht abhängig von änderungsanfälliger Infrastruktur.
+- Tests sind einfacher, da keine komplexe Infrastruktur aufgebaut werden muss.
+- Tests lassen sich jederzeit und überall wiederholbar durchführen.
+- Tests sind schneller, da keine Infrastruktur berührt wird.
+- Der Code wird modularer und Abhängigkeiten werden offensichtlich.
+#### Nachteile
+- Das Zusammenspiel der „echten“ Komponenten wird nicht getestet. Es sind zusätzliche Integrationstests nötig.
+- Das einfache Erstellen von Test Doubles mit Frameworks führt ggfs. zu komplexen Test-Setups oder Overengineering.
+
 ## Installation
 ## Quick Guide
 ## Mock Class
