@@ -154,12 +154,12 @@ KeyError: 'foo'
 >>> mock(), mock(), mock()
 (5, 4, 3)
 ```
-Mock hat viele andere Möglichkeiten, wie Sie es konfigurieren und sein Verhalten steuern können. Beispielsweise konfiguriert das Spezifikation Argument den Mock so, dass seine Spezifikation von einem anderen Objekt übernommen wird. Der Versuch, auf Attribute oder Methoden des Mocks zuzugreifen, die in der Spezifikation nicht vorhanden sind, schlägt mit einem AttributeError fehl.
+Mock hat viele andere Möglichkeiten, wie Sie es konfigurieren und sein Verhalten steuern können. Beispielsweise konfiguriert das Spezifikation Argument den Mock so, dass seine Spezifikation von einem anderen Objekt übernommen wird. Der Versuch, auf Attribute oder Methoden des Mocks zuzugreifen, die in der Spezifikation nicht vorhanden sind, schlägt mit einem <a href="https://docs.python.org/3/library/exceptions.html#AttributeError">AttributeError</a> fehl.
 
 <br>
 <br>
 
-Der patch() Dekorator / Kontextmanager erleichtert das Mock von Klassen oder Objekten in einem zu testenden Modul. Das von Ihnen angegebene Objekt wird während des Tests durch einen Mock (oder ein anderes Objekt) ersetzt und wiederhergestellt, wenn der Test endet:
+Der <a href="https://docs.python.org/3/library/unittest.mock.html#unittest.mock.patch">patch()</a> Dekorator / Kontextmanager erleichtert das Mock von Klassen oder Objekten in einem zu testenden Modul. Das von Ihnen angegebene Objekt wird während des Tests durch einen Mock (oder ein anderes Objekt) ersetzt und wiederhergestellt, wenn der Test endet:
 ```python
 >>> from unittest.mock import patch
 >>> @patch('module.ClassName2')
@@ -174,6 +174,9 @@ Der patch() Dekorator / Kontextmanager erleichtert das Mock von Klassen oder Obj
 ...
 >>> test()
 ```
+Hinweis: Wenn Sie Patch-Dekoratoren verschachteln, werden die Mocks in derselben Reihenfolge an die dekorierte Funktion übergeben, in der sie angewendet wurden (der normalen Python-Reihenfolge, in der Dekoratoren angewendet werden). Dies bedeutet von unten nach oben, sodass im obigen Beispiel der Mock für module.ClassName1 zuerst übergeben wird.
+
+Mit <a href="https://docs.python.org/3/library/unittest.mock.html#unittest.mock.patch">patch()</a> ist es wichtig, dass Sie Objekte in dem Namespace patchen, in dem sie gesucht werden. Dies ist normalerweise unkompliziert, aber für eine kurze Anleitung lesen Sie, <a href="https://docs.python.org/3/library/unittest.mock.html#where-to-patch">wo Sie patchen müssen</a>.
 ## Mock Class
 ## Patchers
 ## Anmerkungen
