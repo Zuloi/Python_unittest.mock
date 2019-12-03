@@ -116,6 +116,44 @@ pip install mock
 ```
 
 ## Quick Guide
+
+Mock- und MagicMock-Objekte erstellen beim Zugriff alle Attribute und Methoden und speichern Details zu ihrer Verwendung. Sie können sie konfigurieren, um Rückgabewerte anzugeben oder die verfügbaren Attribute einzuschränken, und dann Aussagen darüber treffen, wie sie verwendet wurden:
+
+```python
+from unittest.mock import MagicMock
+>>> thing = ProductionClass()
+>>> thing.method = MagicMock(return_value=3)
+>>> thing.method(3, 4, 5, key='value')
+3
+>>> thing.method.assert_called_with(3, 4, 5, key='value')
+```
+
+<br>
+<br>
+
+Mit side_effect können Sie Nebenwirkungen ausführen, einschließlich des Auslösens einer Ausnahme, wenn ein Mock aufgerufen wird:
+```python
+>>> mock = Mock(side_effect=KeyError('foo'))
+>>> mock()
+Traceback (most recent call last):
+ ...
+KeyError: 'foo'
+```
+
+```python
+>>> values = {'a': 1, 'b': 2, 'c': 3}
+>>> def side_effect(arg):
+...     return values[arg]
+...
+>>> mock.side_effect = side_effect
+>>> mock('a'), mock('b'), mock('c')
+(1, 2, 3)
+>>> mock.side_effect = [5, 4, 3, 2, 1]
+>>> mock(), mock(), mock()
+(5, 4, 3)
+```
+Mock hat viele andere Möglichkeiten, wie Sie es konfigurieren und sein Verhalten steuern können. Beispielsweise konfiguriert das Argument spec den Mock so, dass seine Spezifikation von einem anderen Objekt übernommen wird. Der Versuch, auf Attribute oder Methoden des Mocks zuzugreifen, die in der Spezifikation nicht vorhanden sind, schlägt mit einem AttributeError fehl.
+
 ## Mock Class
 ## Patchers
 ## Anmerkungen
