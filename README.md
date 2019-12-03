@@ -111,6 +111,10 @@ Die Meinungen gehen auseinander bei der Frage, ob ein Mock auch bei einem Integr
 - Ncht für den Produktiven einsatzt nur um zu testen.
 
 ## Installation
+```bash
+pip install mock
+```
+
 ## Quick Guide
 ## Mock Class
 ## Patchers
