@@ -116,8 +116,9 @@ pip install mock
 ```
 
 ## Quick Guide
-
-Mock- und MagicMock-Objekte erstellen beim Zugriff alle Attribute und Methoden und speichern Details zu ihrer Verwendung. Sie können sie konfigurieren, um Rückgabewerte anzugeben oder die verfügbaren Attribute einzuschränken, und dann Aussagen darüber treffen, wie sie verwendet wurden:
+<a href="https://docs.python.org/3/library/unittest.mock.html#unittest.mock.Mock" target="_blank">Mock</a>
+<a href="https://docs.python.org/3/library/unittest.mock.html#unittest.mock.MagicMock" target="_blank">MagicMock</a>
+Objekte erstellen beim Zugriff alle Attribute und Methoden und speichern Details zu ihrer Verwendung. Sie können sie konfigurieren, um Rückgabewerte anzugeben oder die verfügbaren Attribute einzuschränken, und dann Aussagen darüber treffen, wie sie verwendet wurden:
 
 ```python
 from unittest.mock import MagicMock
@@ -152,12 +153,29 @@ KeyError: 'foo'
 >>> mock(), mock(), mock()
 (5, 4, 3)
 ```
-Mock hat viele andere Möglichkeiten, wie Sie es konfigurieren und sein Verhalten steuern können. Beispielsweise konfiguriert das Argument spec den Mock so, dass seine Spezifikation von einem anderen Objekt übernommen wird. Der Versuch, auf Attribute oder Methoden des Mocks zuzugreifen, die in der Spezifikation nicht vorhanden sind, schlägt mit einem AttributeError fehl.
+Mock hat viele andere Möglichkeiten, wie Sie es konfigurieren und sein Verhalten steuern können. Beispielsweise konfiguriert das Spezifikation Argument den Mock so, dass seine Spezifikation von einem anderen Objekt übernommen wird. Der Versuch, auf Attribute oder Methoden des Mocks zuzugreifen, die in der Spezifikation nicht vorhanden sind, schlägt mit einem AttributeError fehl.
 
+<br>
+<br>
+
+Der patch() Dekorator / Kontextmanager erleichtert das Mock von Klassen oder Objekten in einem zu testenden Modul. Das von Ihnen angegebene Objekt wird während des Tests durch einen Mock (oder ein anderes Objekt) ersetzt und wiederhergestellt, wenn der Test endet:
+```python
+>>> from unittest.mock import patch
+>>> @patch('module.ClassName2')
+... @patch('module.ClassName1')
+... def test(MockClass1, MockClass2):
+...     module.ClassName1()
+...     module.ClassName2()
+...     assert MockClass1 is module.ClassName1
+...     assert MockClass2 is module.ClassName2
+...     assert MockClass1.called
+...     assert MockClass2.called
+...
+>>> test()
+```
 ## Mock Class
 ## Patchers
 ## Anmerkungen
-
 
 
 
