@@ -116,8 +116,9 @@ pip install mock
 ```
 
 ## Quick Guide
-<a href="https://docs.python.org/3/library/unittest.mock.html#unittest.mock.Mock" target="_blank">Mock</a>
-<a href="https://docs.python.org/3/library/unittest.mock.html#unittest.mock.MagicMock" target="_blank">MagicMock</a>
+<a href="https://docs.python.org/3/library/unittest.mock.html#unittest.mock.Mock">Mock</a>
+und 
+<a href="https://docs.python.org/3/library/unittest.mock.html#unittest.mock.MagicMock">MagicMock</a>
 Objekte erstellen beim Zugriff alle Attribute und Methoden und speichern Details zu ihrer Verwendung. Sie können sie konfigurieren, um Rückgabewerte anzugeben oder die verfügbaren Attribute einzuschränken, und dann Aussagen darüber treffen, wie sie verwendet wurden:
 
 ```python
