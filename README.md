@@ -7,7 +7,7 @@
 
 <!--ts-->
    * [Erklährung](#erklärung)
-   * [Arten des Mocking](#arten des mocking)
+   * [Arten des Mocking](#arten-des-mocking)
    * [Einsatzgebiete](#einsatzgebiete)
    * [Installation](#installation)
    * [Quick Guide](#quick-guide)
