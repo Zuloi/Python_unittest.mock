@@ -177,6 +177,18 @@ Der <a href="https://docs.python.org/3/library/unittest.mock.html#unittest.mock.
 Hinweis: Wenn Sie Patch-Dekoratoren verschachteln, werden die Mocks in derselben Reihenfolge an die dekorierte Funktion übergeben, in der sie angewendet wurden (der normalen Python-Reihenfolge, in der Dekoratoren angewendet werden). Dies bedeutet von unten nach oben, sodass im obigen Beispiel der Mock für module.ClassName1 zuerst übergeben wird.
 
 Mit <a href="https://docs.python.org/3/library/unittest.mock.html#unittest.mock.patch">patch()</a> ist es wichtig, dass Sie Objekte in dem Namespace patchen, in dem sie gesucht werden. Dies ist normalerweise unkompliziert, aber für eine kurze Anleitung lesen Sie, <a href="https://docs.python.org/3/library/unittest.mock.html#where-to-patch">wo Sie patchen müssen</a>.
+
+<br>
+<br>
+
+Ebenso kann ein Dekorations <a href="https://docs.python.org/3/library/unittest.mock.html#unittest.mock.patch">patch()</a> als Kontext-Manager in einer with-Anweisung verwendet werden:
+```python
+>>> with patch.object(ProductionClass, 'method', return_value=None) as mock_method:
+...     thing = ProductionClass()
+...     thing.method(1, 2, 3)
+...
+>>> mock_method.assert_called_once_with(1, 2, 3)
+```
 ## Mock Class
 ## Patchers
 ## Anmerkungen
