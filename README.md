@@ -52,7 +52,7 @@ Ein Mock ist eine Attrappe, die als Platzhalter für noch nicht realisierte Obje
 - Als 2. Variante haben wir den Server gemocked und bekommen nur das zurück was wir anfragenund nicht alles.
 - Als 3. Variante haben wir win Interface was zwischen der Software und eine Service-Implementierung gehängt wir somit brauchen wir keinen neuen Server der den anderen Server mocked.
 
-![Diagramm](https://github.com/Zuloi/Python_unittest.mock/blob/master/Untitled%20Diagram%20(2).png)
+<p align="center"><img src="https://github.com/Zuloi/Python_unittest.mock/blob/master/Untitled%20Diagram%20(2).png"></p>
 
 
 
